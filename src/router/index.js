@@ -6,7 +6,7 @@ import video from 'pages/video/index'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     routes: [
         {
             path: '/',
@@ -21,7 +21,18 @@ export default new Router({
         {
             path: '/video',
             name: 'video',
-            component: video
+            component: video,
+            meta: {
+                title: '佳达店铺名'
+            }
         }
     ]
 })
+
+// 设置页面title
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title || '集群车宝';
+    next();
+});
+
+export default router;

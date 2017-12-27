@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <video class="zq-video" src="/static/video/video.mp4" autoplay controls></video>
+    <div class="video" style="height: 100vh">
+        <!--<video class="zq-video" src="/static/video/video.mp4" autoplay controls></video>-->
+        <iframe height=250 width=100% src='http://player.youku.com/embed/XMTc0MDU4ODQ3Mg==' frameborder=0 allowfullscreen></iframe>
     </div>
 </template>
 
@@ -19,5 +20,9 @@
 <style>
     .zq-video{
         width: 100%;
+    }
+    .video{
+        display: flex;
+        align-items: center;
     }
 </style>
