@@ -23,7 +23,7 @@ const router = new Router({
             name: 'video',
             component: video,
             meta: {
-                title: '佳达店铺名'
+                title: '易橙国际数码商城'
             }
         }
     ]
