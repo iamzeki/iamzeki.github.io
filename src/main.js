@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './assets/scss/normalize.css'
+/*import './assets/common/qqapi.js?_bid=152'*/
 
 Vue.config.productionTip = false
 

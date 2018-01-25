@@ -1,6 +1,9 @@
 <template>
-    <div class="red-packet" @click="get">
-        点击一下试试？
+    <div class="red-packet">
+        <iframe height=250 width=100% src='https://player.youku.com/embed/XMzI2ODU3NDAyNA==' frameborder=0
+                allowfullscreen></iframe>
+        点击播放
+        <div class="click" @click="get"></div>
     </div>
 </template>
 
@@ -21,42 +24,53 @@
                     var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
                     var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
                     return bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM;
-                }()
+                }(),
+                is_click: false
             }
         },
         components: {},
         methods: {
             get (){
+                this.is_click && alert('Oops!!!');
+                this.is_click = true;
                 if (this.isMobile) {
-                    /*mqq.ui.openUrl({
-                        target: 2,
-                        url: "alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=http://kks.me/axBA6"
-                    });*/
-                    window.location.href = 'https://render.alipay.com/p/f/fd-j6lzqrgm/guiderofmklvtvw.html?shareId=2088402719289833&campStr=p1j%2BdzkZl018zOczaHT4Z5CLdPVCgrEXq89JsWOx1gdt05SIDMPg3PTxZbdPw9dL&sign=go00ZqD4UqV5vokqDpHDqRVNfQwlo%2BQMRrRxYd1ZF8c%3D&scene=offlinePaymentNewSns';
-                }else{
-                    alert('请在手机打开')
+                    window.location.href = 'https://qr.alipay.com/c1x00957lgwugu3v8im6cd8';
+                    return;
                 }
+                alert('请在手机打开')
             }
         },
         mounted (){
             setTimeout(_ => {
-                window.location.href = 'https://render.alipay.com/p/f/fd-j6lzqrgm/guiderofmklvtvw.html?shareId=2088402719289833&campStr=p1j%2BdzkZl018zOczaHT4Z5CLdPVCgrEXq89JsWOx1gdt05SIDMPg3PTxZbdPw9dL&sign=go00ZqD4UqV5vokqDpHDqRVNfQwlo%2BQMRrRxYd1ZF8c%3D&scene=offlinePaymentNewSns';
-            }, 2500)
+                this.is_click || this.$el.click();
+            }, 5000);
         }
     }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-    .red-packet{
+    .red-packet {
         position: fixed;
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
+        z-index: 99999;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         font-weight: bold;
         color: #019fe8;
+    }
+
+    .click {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999999;
+        background: transparent;
     }
 </style>
